@@ -27,19 +27,7 @@ router.post("/search", async (req, res) => {
         );
         break;
 
-      case "google":
-        response = await axios.get(
-          `https://www.googleapis.com/customsearch/v1`,
-          {
-            params: {
-              q: query,
-              cx: process.env.GOOGLE_CUSTOM_SEARCH_ENGINE_ID,
-              key: process.env.GOOGLE_API_KEY,
-            },
-          }
-        );
-        break;
-
+     
       case "ai":
         response = await axios.post(
           "https://api.gemini.com/v1/query",
